@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 
 const CurrentSession = () => {
   return (
-      <View className="bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-700 dark:to-blue-700 rounded-xl p-6 mb-6">
+      <View className="shadow-md bg-gradient-to-r from-purple-500 to-blue-500 dark:from-slate-900 dark:to-orange-900 rounded-xl p-4 mt-14 mb-6">
         <Text className="text-white text-lg font-semibold mb-1">
           Current Session
         </Text>

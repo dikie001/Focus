@@ -4,11 +4,12 @@ import { useColorScheme as useTailwindColorScheme } from "nativewind";
 
 export default function ThemeProvider({children}: {children: React.ReactNode}){
     const systemScheme:any = useSystemScheme()
+    
     const {setColorScheme}=useTailwindColorScheme()
  
-    useEffect(()=>{
-        setColorScheme(systemScheme)
-    },[systemScheme])
+    // useEffect(()=>{
+    //     setColorScheme(systemScheme)
+    // },[systemScheme])
 
     return <>{children}</>
 }

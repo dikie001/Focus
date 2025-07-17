@@ -11,7 +11,7 @@ const Categories = () => {
 
       <View className="flex-row justify-between">
         {/* Work */}
-        <View className="flex-1 bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mr-2">
+        <View className="flex-1 shadow-lg bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mr-2">
           <Ionicons
             name="briefcase-outline"
             size={22}
@@ -25,7 +25,7 @@ const Categories = () => {
         </View>
 
         {/* Learning */}
-        <View className="flex-1 bg-green-50 dark:bg-green-900/20 rounded-lg p-4 ml-2">
+        <View className="flex-1 shadow-lg bg-green-50 dark:bg-green-900/20 rounded-lg p-4 ml-2">
           <Ionicons
             name="book-outline"
             size={22}
