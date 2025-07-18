@@ -7,13 +7,15 @@ import Navbar from "./components/Navbar";
 import QuickActions from "./components/QuickActions";
 import Quotes from "./components/Quotes";
 import RecentActivity from "./components/RecentActivity";
-import { ModalProvider } from "./context/AddTaskContext";
+import { ModalProvider } from "./context/ModalContext";
 import AddTaskModal from "./modals/AddTaskModal";
+import StartTaskModal from "./modals/StartTaskModal";
+import Toast from 'react-native-toast-message'
 
 export default function App() {
   return (
     <ModalProvider>
-      <View className="flex-1 bg-white dark:bg-neutral-900 px-6 pt-12">
+      <View className="flex-1 bg-white dark:bg-gradient-to-br dark:from-slate-950 dark:to-neutral-950 px-4 pt-12">
         <Navbar />
         <ScrollView
           showsHorizontalScrollIndicator={false}
@@ -30,6 +32,8 @@ export default function App() {
 
       {/* Modals */}
       <AddTaskModal />
+      <StartTaskModal/>
+      <Toast/>
     </ModalProvider>
   );
 }

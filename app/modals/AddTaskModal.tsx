@@ -1,18 +1,23 @@
 import React, { useRef, useState } from "react";
 import { Modal, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TimePickerModal } from "react-native-paper-dates";
-import { useModal } from "../context/AddTaskContext";
+import { v4 as uuidv4 } from "uuid";
+import { useModal } from "../context/ModalContext";
+import { CreateNewTask } from "../utils/MIniFunctions";
+import Toast from "react-native-toast-message";
 
 type Props = {
   visible: boolean;
   onClose: () => void;
 };
 
-type TaskType = {
+type taskTypes = {
+  id: string;
   title: string;
   description: string;
+  startTime: string;
+  endTime: string;
   duration: string;
-  datetime: Date;
 };
 
 export default function AddTaskModal() {
@@ -25,27 +30,43 @@ export default function AddTaskModal() {
   const selectedTimeRef = useRef<any | null>(null);
   const startTimeRef = useRef<any | null>(null);
   const endTimeRef = useRef<any | null>(null);
+  const task: any = {
+    id: "",
+    title: "",
+    description: "",
+    startTime: "",
+    endTime: "",
+    duration: "",
+  };
 
   const [startMinutes, setStartMinutes] = useState<number>(); // start time converted to minutes.
 
   // Create a new task!
   const handleSubmit = () => {
     if (!title.trim() || !duration.trim()) return;
+    if(Number(duration) > 600){
+      Toast.show({
+        type:"error",
+        text1:"Duration too long",
+        text2:"You can not have a task that lasts more than 10 hours"
+      })
+      setDuration("")
+      return;
+    }
     extractTime();
     const start = startTimeRef.current;
     const stop = endTimeRef.current;
-    console.table(
-      "start-",
-      start,
-      "stop-",
-      stop,
-      "title-",
-      title,
-      "description-",
-      description
-    );
+
+    // Assign values to the object
+    task.id = uuidv4();
+    task.title = title;
+    task.description = description;
+    task.startTime = start;
+    task.endTime = stop;
+    task.duration = duration;
 
     reset();
+    CreateNewTask(task);
   };
 
   const reset = () => {
@@ -55,13 +76,13 @@ export default function AddTaskModal() {
     // setDatetime(new Date());
     setTime("");
     selectedTimeRef.current = null;
-    close();
+    close("add-task");
   };
 
   const extractTime = () => {
     const selectedTime = selectedTimeRef.current;
-    const hours = selectedTime.hours;
-    const minutes = selectedTime.minutes;
+    const hours = selectedTime?.hours || 0;
+    const minutes = selectedTime?.minutes || 0;
     const startTime = `${hours}:${minutes}`;
     setTime(startTime);
     startTimeRef.current = startTime;
@@ -80,8 +101,8 @@ export default function AddTaskModal() {
   return (
     <Modal
       animationType="slide"
-      visible={isOpen}
-      onRequestClose={close}
+      visible={isOpen("add-task")}
+      onRequestClose={() => close("add-task")}
       transparent
     >
       <View className="flex-1 justify-end bg-black/50 ">
@@ -113,16 +134,16 @@ export default function AddTaskModal() {
           <View className=" flex-row justify-between  w-full space-x-3 ">
             <TouchableOpacity
               onPress={() => setVisible(true)}
-              className={`${selectedTimeRef.current !== null && "bg-neutral-400"} flex-1 bg-orange-800 p-3 rounded-xl items-center`}
+              className={`${selectedTimeRef.current !== null && "bg-primary-sButton"} min-w-[40%] flex-1 bg-orange-800 p-3 rounded-xl items-center`}
             >
-              <Text className="text-white font-semibold">{`${selectedTimeRef.current === null ? "Select Time" : "Time Selected!"}`}</Text>
+              <Text className={`${selectedTimeRef.current !== null && "text-gray-950"} text-white font-semibold`}>{`${selectedTimeRef.current === null ? "Select Time" : "Time Selected!"}`}</Text>
             </TouchableOpacity>
             <TextInput
               placeholder="start time (optional)"
               placeholderTextColor="#888"
               keyboardType="numeric"
               value={` ${selectedTimeRef.current !== null ? selectedTimeRef.current.hours : "0"} ${selectedTimeRef.current === null ? "" : ":"} ${selectedTimeRef.current !== null ? selectedTimeRef.current.minutes : ""}`}
-              className="bg-neutral-300  flex-1 dark:bg-neutral-800 p-3 outline-0 focus:ring-1 ring-orange-800 rounded-xl text-black dark:text-white"
+              className="bg-neutral-300  flex-1 max-w-[50%] dark:bg-neutral-800 p-3 outline-0 focus:ring-1 ring-orange-800 rounded-xl text-black dark:text-white"
             />
           </View>
 
@@ -162,14 +183,14 @@ export default function AddTaskModal() {
           <View className="flex-row justify-between space-x-3">
             <TouchableOpacity
               onPress={reset}
-              className="flex-1 bg-neutral-400 dark:bg-neutral-700 p-3 rounded-xl items-center"
+              className="flex-1 bg-primary-sButton dark:bg-neutral-700 p-3 rounded-xl items-center"
             >
               <Text className="text-black dark:text-white">Cancel</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
               onPress={handleSubmit}
-              className="flex-1 bg-orange-800 p-3 rounded-xl items-center"
+              className="flex-1 bg-primary-pButton p-3 rounded-xl items-center"
             >
               <Text className="text-white font-semibold">Add Task</Text>
             </TouchableOpacity>

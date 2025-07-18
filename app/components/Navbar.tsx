@@ -3,7 +3,7 @@ import { useFocusEffect } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React, { useCallback, useState } from "react";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
-import { useModal } from "../context/AddTaskContext";
+import { useModal } from "../context/ModalContext";
 
 const Navbar = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
@@ -39,7 +39,7 @@ const Navbar = () => {
       calculateDate();
     }, [])
   );
-   
+
   const calculateDate = () => {
     const today = new Date();
     // get the day of week
@@ -67,9 +67,9 @@ const Navbar = () => {
   };
 
   return (
-    <View className="flex-row px-4 bg-white/70 backdrop-blur-sm dark:bg-orange-950 pb-2  justify-between pt-6 items-center   absolute left-0 top-0 right-0 z-50">
-      <View className="">
-        <Text className="text-lg font-bold text-gray-900 dark:text-white">
+    <View className="flex-row shadow-md px-3 bg-white/70 backdrop-blur-sm dark:bg-gradient-to-tr dark:from-orange-950 dark:to-slate-950 pb-2  justify-between pt-6 items-center   absolute left-0 top-0 right-0 z-50">
+      <View className=" ">
+        <Text className="text-lg  font-bold text-gray-900 dark:text-white">
           Good {greeting}, Dickens
         </Text>
         <Text className="text-gray-600 dark:text-gray-400">{date}</Text>
@@ -81,17 +81,17 @@ const Navbar = () => {
         }
       >
         <Ionicons
-          name={colorScheme === "light" ? "moon-outline" : "sunny-sharp"}
-          size={24}
-          color="gray"
+          name={colorScheme === "light" ? "moon-sharp" : "sunny-sharp"}
+          size={20}
+          className="text-orange-900 dark:text-gray-500"
         />
       </Pressable>
 
       <TouchableOpacity>
-        <Ionicons name="notifications-outline" size={24} color="gray" />
+        <Ionicons name="notifications-outline" size={16} color="gray" />
       </TouchableOpacity>
-      <TouchableOpacity className="p-2 h-10 w-10  rounded-full bg-gray-100 dark:bg-gray-800">
-        <Ionicons name="menu" size={24} color="orange" />
+      <TouchableOpacity>
+        <Ionicons name="menu" size={24} color="gray" />
       </TouchableOpacity>
     </View>
   );
