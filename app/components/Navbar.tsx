@@ -17,7 +17,7 @@ const Navbar = () => {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturady",
+    "Saturday",
   ];
   const months = [
     "January",
@@ -72,7 +72,7 @@ const Navbar = () => {
     <View className="flex-row shadow-md px-3 bg-white/70 backdrop-blur-sm dark:bg-gradient-to-tr dark:from-orange-950 dark:to-slate-950 pb-2  justify-between pt-6 items-center   absolute left-0 top-0 right-0 z-50">
       <View className=" ">
         <Text className="text-lg  font-bold text-gray-900 dark:text-white">
-          Good {greeting}, Abraham
+          Good {greeting}, Dickens
         </Text>
         <Text className="text-gray-600 dark:text-gray-400">{date}</Text>
       </View>

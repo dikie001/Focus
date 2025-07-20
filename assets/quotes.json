@@ -1,0 +1,1052 @@
+[
+  {
+    "id": 1,
+    "quote": "The only limit to our realization of tomorrow is our doubts of today.",
+    "author": "Franklin D. Roosevelt"
+  },
+  {
+    "id": 2,
+    "quote": "Do not wait for leaders; do it alone, person to person.",
+    "author": "Mother Teresa"
+  },
+  {
+    "id": 3,
+    "quote": "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+    "author": "Winston Churchill"
+  },
+  {
+    "id": 4,
+    "quote": "Start ugly, win beautifully",
+    "author": "Dickens Omondi."
+  },
+  {
+    "id": 5,
+    "quote": "It always seems impossible until it is done.",
+    "author": "Nelson Mandela"
+  },
+  {
+    "id": 6,
+    "quote": "Believe you can and you're halfway there.",
+    "author": "Theodore Roosevelt"
+  },
+  {
+    "id": 7,
+    "quote": "You miss 100% of the shots you don't take.",
+    "author": "Wayne Gretzky"
+  },
+  {
+    "id": 8,
+    "quote": "Whether you think you can or you think you can't, you're right.",
+    "author": "Henry Ford"
+  },
+  {
+    "id": 9,
+    "quote": "Be yourself; everyone else is already taken.",
+    "author": "Oscar Wilde"
+  },
+  {
+    "id": 10,
+    "quote": "The best way to predict the future is to invent it.",
+    "author": "Alan Kay"
+  },
+  {
+    "id": 11,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 12,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 13,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Confucius"
+  },
+  {
+    "id": 14,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 15,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 16,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 17,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 18,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 19,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 20,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Plato"
+  },
+  {
+    "id": 21,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 22,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 23,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 24,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 25,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 26,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 27,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 28,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Confucius"
+  },
+  {
+    "id": 29,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 30,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 31,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 32,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 33,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 34,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 35,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 36,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Plato"
+  },
+  {
+    "id": 37,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 38,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "James Clear"
+  },
+  {
+    "id": 39,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 40,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 41,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Confucius"
+  },
+  {
+    "id": 42,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 43,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 44,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 45,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "James Clear"
+  },
+  {
+    "id": 46,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 47,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Confucius"
+  },
+  {
+    "id": 48,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 49,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 50,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 51,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 52,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 53,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Plato"
+  },
+  {
+    "id": 54,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 55,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Confucius"
+  },
+  {
+    "id": 56,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 57,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 58,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Confucius"
+  },
+  {
+    "id": 59,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 60,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 61,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 62,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 63,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Confucius"
+  },
+  {
+    "id": 64,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "James Clear"
+  },
+  {
+    "id": 65,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 66,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 67,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 68,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 69,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 70,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 71,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 72,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 73,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 74,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Confucius"
+  },
+  {
+    "id": 75,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 76,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 77,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 78,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 79,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 80,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 81,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Confucius"
+  },
+  {
+    "id": 82,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 83,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 84,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 85,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 86,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "id": 87,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 88,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 89,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 90,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 91,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 92,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "James Clear"
+  },
+  {
+    "id": 93,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 94,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 95,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 96,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 97,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "id": 98,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 99,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Plato"
+  },
+  {
+    "id": 100,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 101,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 102,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 103,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 104,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "James Clear"
+  },
+  {
+    "id": 105,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "id": 106,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "James Clear"
+  },
+  {
+    "id": 107,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 108,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 109,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 110,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 111,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 112,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 113,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 114,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 115,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Confucius"
+  },
+  {
+    "id": 116,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 117,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 118,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 119,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 120,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 121,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 122,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 123,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 124,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 125,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 126,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "James Clear"
+  },
+  {
+    "id": 127,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Barack Obama"
+  },
+  {
+    "id": 128,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 129,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 130,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "id": 131,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 132,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 133,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 134,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 135,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Barack Obama"
+  },
+  {
+    "id": 136,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 137,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 138,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 139,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 140,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 141,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 142,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 143,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 144,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 145,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "James Clear"
+  },
+  {
+    "id": 146,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 147,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 148,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Stephen Hawking"
+  },
+  {
+    "id": 149,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 150,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 151,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 152,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 153,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 154,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 155,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 156,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Plato"
+  },
+  {
+    "id": 157,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Barack Obama"
+  },
+  {
+    "id": 158,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 159,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Confucius"
+  },
+  {
+    "id": 160,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 161,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 162,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 163,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 164,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 165,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 166,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 167,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 168,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Barack Obama"
+  },
+  {
+    "id": 169,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Leonardo da Vinci"
+  },
+  {
+    "id": 170,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 171,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Confucius"
+  },
+  {
+    "id": 172,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 173,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 174,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 175,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Malcolm X"
+  },
+  {
+    "id": 176,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 177,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "James Clear"
+  },
+  {
+    "id": 178,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Plato"
+  },
+  {
+    "id": 179,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 180,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Barack Obama"
+  },
+  {
+    "id": 181,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Marcus Aurelius"
+  },
+  {
+    "id": 182,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 183,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 184,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 185,
+    "quote": "He who is not courageous enough to take risks will accomplish nothing in life.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 186,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 187,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 188,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 189,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 190,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Barack Obama"
+  },
+  {
+    "id": 191,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 192,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Tony Robbins"
+  },
+  {
+    "id": 193,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Albert Einstein"
+  },
+  {
+    "id": 194,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Steve Jobs"
+  },
+  {
+    "id": 195,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 196,
+    "quote": "An unexamined life is not worth living.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 197,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Maya Angelou"
+  },
+  {
+    "id": 198,
+    "quote": "Life is not measured by the number of breaths we take, but by the moments that take our breath away.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 199,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Aristotle"
+  },
+  {
+    "id": 200,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Marie Curie"
+  },
+  {
+    "id": 201,
+    "quote": "Do what you can, with what you have, where you are.",
+    "author": "Oprah Winfrey"
+  },
+  {
+    "id": 202,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Dalai Lama"
+  },
+  {
+    "id": 203,
+    "quote": "Knowledge speaks, but wisdom listens.",
+    "author": "Confucius"
+  },
+  {
+    "id": 204,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Confucius"
+  },
+  {
+    "id": 205,
+    "quote": "Everything you've ever wanted is on the other side of fear.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 206,
+    "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+    "author": "Elon Musk"
+  },
+  {
+    "id": 207,
+    "quote": "Stay hungry, stay foolish.",
+    "author": "Sun Tzu"
+  },
+  {
+    "id": 208,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Bruce Lee"
+  },
+  {
+    "id": 209,
+    "quote": "Knowing yourself is the beginning of all wisdom.",
+    "author": "Isaac Newton"
+  },
+  {
+    "id": 210,
+    "quote": "Your time is limited, so don't waste it living someone else's life.",
+    "author": "Isaac Newton"
+  }
+]

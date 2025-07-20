@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Modal, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Modal, Pressable, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TimePickerModal } from "react-native-paper-dates";
 import { v4 as uuidv4 } from "uuid";
 import { useModal } from "../context/ModalContext";
@@ -105,8 +105,8 @@ export default function AddTaskModal() {
       onRequestClose={() => close("add-task")}
       transparent
     >
-      <View className="flex-1 justify-end bg-black/50 ">
-        <View className="bg-white dark:bg-neutral-900 p-4 rounded-t-2xl space-y-4">
+      <Pressable onPress={()=>close("add-task")}  className="flex-1 justify-end bg-black/50 ">
+        <Pressable onPress={()=>{}} className="bg-white z-50 dark:bg-neutral-900 p-4 rounded-t-2xl space-y-4">
           <Text className="text-xl font-semibold text-neutral-900 dark:text-white">
             Add New Task
           </Text>
@@ -195,8 +195,8 @@ export default function AddTaskModal() {
               <Text className="text-white font-semibold">Add Task</Text>
             </TouchableOpacity>
           </View>
-        </View>
-      </View>
+        </Pressable>
+      </Pressable>
 
       {/* Time picker modal */}
       <TimePickerModal

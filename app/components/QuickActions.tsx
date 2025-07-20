@@ -2,7 +2,6 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useModal } from "../context/ModalContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ALL_TASKS = "focus-all-tasks";
 

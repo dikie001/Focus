@@ -1,8 +1,13 @@
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
-import { Modal, Text, TouchableOpacity, View } from "react-native";
+import { Modal, Pressable, Text, TouchableOpacity, View } from "react-native";
+import Toast from "react-native-toast-message";
 import { useModal } from "../context/ModalContext";
-import { createNewSession, getAllTasks } from "../utils/MIniFunctions";
+import {
+  createNewSession,
+  fetchCurrentSessionTask,
+  getAllTasks,
+} from "../utils/MIniFunctions";
 
 type TaskType = {
   title: string;
@@ -13,7 +18,11 @@ type TaskType = {
   startTime: string;
 };
 
-const StartTaskModal = () => {
+type MainProps ={
+  onStart: ()=>void
+}
+
+const StartTaskModal = ({onStart}:MainProps) => {
   const { isOpen, close, open } = useModal();
   const [tasks, setTasks] = useState<any>([]);
 
@@ -31,11 +40,19 @@ const StartTaskModal = () => {
   };
 
   //handle start task
-  const handleStartTask=(id:string)=>{
-    const currentTask =  tasks.find((task:TaskType)=>task.id === id)
-    createNewSession(currentTask)
-    
-  }
+  const handleStartTask = async (id:string) => {
+    const sessionStatus = await fetchCurrentSessionTask();
+    if (sessionStatus) {
+      Toast.show({
+        type: "error",
+        text1: "Error",
+        text2: "Finish the current task first before moving to the next.",
+      });
+      return;
+    }
+    const currentTask = tasks.find((task: TaskType) => task.id === id);
+    createNewSession(currentTask);
+  };
 
   return (
     <Modal
@@ -44,8 +61,8 @@ const StartTaskModal = () => {
       animationType="slide"
       onRequestClose={() => close("start-task")}
     >
-      <View className="flex-1 justify-end bg-black/50 ">
-        <View className="bg-white dark:bg-neutral-900 p-4 rounded-t-2xl space-y-4">
+      <Pressable onPress={()=>close("start-task")} className="flex-1 justify-end bg-black/50 ">
+        <Pressable onPress={()=>{}} className="bg-white dark:bg-neutral-900 p-4 rounded-t-2xl space-y-4">
           <Text className="text-black font-semibold dark:text-white text-xl">
             Choose a task
           </Text>
@@ -77,7 +94,9 @@ const StartTaskModal = () => {
                 <TouchableOpacity
                   onPress={() => {
                     close("start-task");
-                    handleStartTask(task.id)
+                    handleStartTask(task.id);
+                    onStart
+                    
                   }}
                   key={task.id}
                   className="flex flex-row  justify-between bg-gradient-to-tr  from-blue-800 to-purple-700 dark:shadow-black/50 dark:bg-gradient-to-tl  dark:from-orange-950 dark:to-gray-900 shadow-lg rounded-xl py-2 px-4"
@@ -102,23 +121,16 @@ const StartTaskModal = () => {
               ))}
           </View>
 
-          <View className="flex-row justify-between space-x-3">
-            <TouchableOpacity
-              onPress={() => close("start-task")}
-              className="flex-1 bg-primary-sButton dark:bg-neutral-700 p-3 rounded-xl items-center"
-            >
-              <Text className="text-black dark:text-white">Cancel</Text>
-            </TouchableOpacity>
+      
+          <Pressable onPress={() => close("start-task")} className="mt-3 py-3">
+                    <Text className="text-center text-red-500 font-semibold">
+                      Cancel
+                    </Text>
+                  </Pressable>
 
-            {/* <TouchableOpacity
-                //    onPress={handleSubmit}
-                   className="flex-1 bg-primary-pButton p-3 rounded-xl items-center"
-                 >
-                   <Text className="text-white font-semibold">Add Task</Text>
-                 </TouchableOpacity> */}
-          </View>
-        </View>
-      </View>
+    
+        </Pressable>
+      </Pressable>
     </Modal>
   );
 };

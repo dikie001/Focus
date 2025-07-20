@@ -4,8 +4,11 @@ import Toast from "react-native-toast-message";
 const ALL_TASKS = "focus-all-tasks";
 const CURRENT_SESSION = "focus-current-session";
 const COMPLETED_TASKS = "focus-completed-tasks";
+const PAUSE_INTERVAL = "focus-pause-interval";
+const PAUSE_AT_INTERVAL = "focus-pausedAt";
 
 type TaskTypes = {
+  id: string;
   title: string;
   description: string;
   startTime: string;
@@ -59,9 +62,59 @@ export async function fetchCurrentSessionTask() {
 }
 
 //create and update list of completed tasks
-export async function updateCompletedTasks(params: TaskTypes) {
+export async function updateCompletedTasks(params: any) {
   const rawData = await AsyncStorage.getItem(COMPLETED_TASKS);
   const parsedData = rawData ? JSON.parse(rawData) : [];
   const updatedData = [...parsedData, params];
-  await AsyncStorage.setItem(COMPLETED_TASKS, JSON.stringify(updatedData));
+  try {
+    await AsyncStorage.setItem(COMPLETED_TASKS, JSON.stringify(updatedData));
+  } catch (err) {
+    console.log("AsyncStorage---", err);
+  }
+}
+
+//pause/play the interval     //play or pause
+export async function savePauseStatus(params: string) {
+  await AsyncStorage.setItem(PAUSE_INTERVAL, JSON.stringify(params));
+}
+// get  the interval for play/pause
+export async function getPause() {
+  const playInterval = await AsyncStorage.getItem(PAUSE_INTERVAL);
+  const parsedData: string = playInterval ? JSON.parse(playInterval) : null;
+  return parsedData;
+}
+
+//save the pausedAtRef to the storage   //00:00:00
+export async function savePausedAt(params: number | null) {
+  await AsyncStorage.setItem(PAUSE_AT_INTERVAL, JSON.stringify(params));
+}
+
+//get the pausedAtRef from storage
+export async function getPausedAt() {
+  const pausedAt = await AsyncStorage.getItem(PAUSE_AT_INTERVAL);
+  const parsedData = pausedAt ? JSON.parse(pausedAt) : null;
+  return parsedData;
+}
+//purge the pausedAtRef from storage
+export async function purgePausedAt() {
+  await AsyncStorage.removeItem(PAUSE_AT_INTERVAL);
+}
+
+// delete task with specific id from focus-all-tasks
+export async function Delete(params: string) {
+  const allTasks = await AsyncStorage.getItem(ALL_TASKS);
+  const parsedTasks = allTasks ? JSON.parse(allTasks) : [];
+  const itemToDelete = parsedTasks.find(
+    (item: TaskTypes) => item.id === params
+  );
+  const filteredItems = parsedTasks.filter(
+    (item: TaskTypes) => item !== itemToDelete
+  );
+
+  try {
+    await AsyncStorage.setItem(ALL_TASKS, JSON.stringify(filteredItems));
+    console.log("Completed item deletd from storage.");
+  } catch (err) {
+    console.log("AsyncStorage---", err);
+  }
 }
