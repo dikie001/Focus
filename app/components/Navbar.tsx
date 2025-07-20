@@ -53,10 +53,12 @@ const Navbar = () => {
     const hours = today.getHours();
     if (hours < 12) {
       setGreeting("morning");
-    } else if (hours < 18) {
+    } else if (hours < 15) {
       setGreeting("afternoon");
-    } else {
+    } else if(hours < 21) {
       setGreeting("evening");
+    }else{
+      setGreeting("night")
     }
 
     //get the date of the month
@@ -70,7 +72,7 @@ const Navbar = () => {
     <View className="flex-row shadow-md px-3 bg-white/70 backdrop-blur-sm dark:bg-gradient-to-tr dark:from-orange-950 dark:to-slate-950 pb-2  justify-between pt-6 items-center   absolute left-0 top-0 right-0 z-50">
       <View className=" ">
         <Text className="text-lg  font-bold text-gray-900 dark:text-white">
-          Good {greeting}, Dickens
+          Good {greeting}, Abraham
         </Text>
         <Text className="text-gray-600 dark:text-gray-400">{date}</Text>
       </View>
@@ -87,10 +89,10 @@ const Navbar = () => {
         />
       </Pressable>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>open("notification-modal")}>
         <Ionicons name="notifications-outline" size={16} color="gray" />
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>open("menu-modal")}>
         <Ionicons name="menu" size={24} color="gray" />
       </TouchableOpacity>
     </View>
