@@ -15,9 +15,9 @@ const RecentActivity = () => {
   const getRecentAsctivity = async () => {
     const rawData = await AsyncStorage.getItem(COMPLETED_TASKS);
     const parsedData = rawData ? JSON.parse(rawData) : [];
-    const reversedData = parsedData.slice().reverse();
-    console.log(reversedData);
-    const filteredData = reversedData.filter(
+    // const reversedData = parsedData.slice().reverse();
+    // console.log(reversedData);
+    const filteredData = parsedData.filter(
       (_: any, index: number) => index <= 3
     );
     setTasks(filteredData);
@@ -29,7 +29,7 @@ const RecentActivity = () => {
       </Text>
 
       <View className="space-y-3">
-        {tasks?.map((task: any) => (
+        {tasks?.slice().reverse().map((task: any) => (
           <View
             key={task?.id}
             className="bg-gray-200 dark:bg-gray-800 rounded-lg shadow-md px-4 py-2"
@@ -42,10 +42,10 @@ const RecentActivity = () => {
             </Text>
 
             <Ionicons
-            className={`absolute top-2 right-3 ${task.category === 'work'? "text-blue-600":"text-green-400"}`}
+            className={`absolute top-2 right-3 ${task?.category === 'work'? "text-blue-600":"text-green-400"}`}
             size={18}
               name={
-                task.category === "work" ? "briefcase-outline" : "book-outline"
+                task?.category === "work" ? "briefcase-outline" : "book-outline"
               }
             />
           </View>

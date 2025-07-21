@@ -111,9 +111,14 @@ export async function Delete(params: string) {
     (item: TaskTypes) => item !== itemToDelete
   );
 
+  //get the existing items in completed-tasks
+  const existing = await AsyncStorage.getItem(COMPLETED_TASKS);
+  const parsed = existing ? JSON.parse(existing) : [];
+  const updated = [...parsed, itemToDelete]
+
   try {
     await AsyncStorage.setItem(ALL_TASKS, JSON.stringify(filteredItems));
-    console.log("Completed item deletd from storage.");
+    await AsyncStorage.setItem(COMPLETED_TASKS, JSON.stringify(updated))
   } catch (err) {
     console.log("AsyncStorage---", err);
   }

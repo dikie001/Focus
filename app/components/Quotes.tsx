@@ -46,7 +46,7 @@ const Quotes = () => {
   const quote = quotes[id];
 
   return (
-    <View className="shadow-lg bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-700 dark:to-purple-700 rounded-xl p-6 mb-10">
+    <View className="shadow-lg shadow-black/70 bg-gradient-to-tl from-indigo-500 to-purple-600 dark:from-orange-950 dark:to-gray-950 rounded-xl p-6 mb-10">
       <Ionicons name="chatbox" size={24} color="white" className="mb-2" />
       <Text>{quote.id}</Text>
       <Text className="text-white text-lg italic font-medium mb-2">
