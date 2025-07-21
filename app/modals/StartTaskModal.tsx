@@ -52,6 +52,7 @@ const StartTaskModal = ({onStart}:MainProps) => {
     }
     const currentTask = tasks.find((task: TaskType) => task.id === id);
     createNewSession(currentTask);
+    onStart()
   };
 
   return (

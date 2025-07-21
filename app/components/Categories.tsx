@@ -24,7 +24,13 @@ const Categories = () => {
   useEffect(() => {
     getDuration();
   }, []);
+
+  useEffect(()=>{
+    calculateDuration()
+  },[workTasks, learningTasks])
+  
   const getDuration = async () => {
+    console.log("getting duration...");
     const rawData = await AsyncStorage.getItem(ALL_TASKS);
     const parsedData = rawData ? JSON.parse(rawData) : [];
 
@@ -36,8 +42,7 @@ const Categories = () => {
     const workSum = workDuration.reduce(
       (total: number, duration: number) => total + Number(duration),
       0
-    ); 
-    console.log("worksum", workSum);
+    );
     setWorkTasks(workSum * 60);
 
     // LEARNING
@@ -45,7 +50,7 @@ const Categories = () => {
       (item: TaskTypes) => item.category === "learning"
     );
     const learnDuration = learning_tasks.map(
-      (item: TaskTypes) => item.duration  
+      (item: TaskTypes) => item.duration
     );
     const learnSum = learnDuration.reduce(
       (total: number, duration: number) => total + Number(duration),
@@ -53,27 +58,29 @@ const Categories = () => {
     );
 
     setLearningTasks(learnSum * 60);
-    calculateDuration();
   };
 
   const calculateDuration = () => {
-    const min = Math.floor((workTasks % 3600) / 60) 
+    console.log("calculating...");
+    const min = Math.floor((workTasks % 3600) / 60)
       .toString()
       .padStart(1, "0");
 
     const hours = Math.floor(workTasks / 3600)
       .toString()
-      .padStart(1, "0"); 
-    setWorkTime(`${hours}h ${min}m`);
+      .padStart(1, "0");
 
     const min2 = Math.floor((learningTasks % 3600) / 60)
-      .toString() 
-      .padStart(1, "0");  
+      .toString()
+      .padStart(1, "0");
 
     const hours2 = Math.floor(learningTasks / 3600)
       .toString()
       .padStart(1, "0");
+
+
     setLearningTime(`${hours2}h ${min2}m`);
+    setWorkTime(`${hours}h ${min}m`);
   };
   return (
     <View className="mb-6">

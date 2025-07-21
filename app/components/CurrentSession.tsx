@@ -38,6 +38,7 @@ const CurrentSession = () => {
   const pausedAtRef = useRef<string | null>(null);
   const [message, setMessage] = useState<string>("No task in session!");
   const [task, setTask] = useState<TaskTypes>();
+  const [_, forceUpdate]=useState(0)
 
   useEffect(() => {
     fetchCurrentTask();
@@ -54,6 +55,12 @@ const CurrentSession = () => {
     countRef.current = Number(pausedTime);
   }
 
+  //Re-render the component
+  const rerender=()=>{
+    forceUpdate(prev=>prev+1)
+    console.log("page rerendered")
+  }
+
   //the fetch to be run everytime start-task modal closes
   const fetchCurrentTask = async () => {
     const currentSession = await fetchCurrentSessionTask();
@@ -64,6 +71,7 @@ const CurrentSession = () => {
       setTask(parsedData);
       countRef.current = Number(parsedData.duration * 60);
       setTimeLeft(countRef.current);
+      pauseStatusRef.current = "playing"
     } else {
       setMessage("No task in session...");
       return;
@@ -71,13 +79,14 @@ const CurrentSession = () => {
   };
 
   //timer interval
-  useEffect(() => {
+  useEffect(() => {              
     timer()
   }, []);
 
   //THE TIMER INTERVAL
   const timer = () => { 
     console.log('timer has started!')
+    if(intervalRef.current) return
     intervalRef.current = setInterval(() => {
       if (countRef.current <= 0) {
         return;
@@ -113,9 +122,8 @@ const CurrentSession = () => {
 
   //handle play or pause
   const handlePlayPause = async () => {
-    setIsPlaying(!isPlaying);
-
-    pauseStatusRef.current =
+    setIsPlaying(!isPlaying); 
+    pauseStatusRef.current =  
       pauseStatusRef.current === "playing"
         ? "paused"
         : pauseStatusRef.current === "paused"
@@ -167,6 +175,7 @@ const CurrentSession = () => {
       return;
     }
     open("confirm-modal");
+    setMessage("Task terminated")
   };
 
   //remove the session after confirm
