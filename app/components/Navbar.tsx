@@ -71,21 +71,21 @@ const Navbar = () => {
   return (
     <View className="flex-row shadow-md px-3 bg-white/70 backdrop-blur-sm dark:bg-gradient-to-tr dark:from-orange-950 dark:to-slate-950 pb-2  justify-between pt-6 items-center   absolute left-0 top-0 right-0 z-50">
       <View className=" ">
-        <Text className="text-lg  font-bold text-gray-900 dark:text-white">
+        <Text className="text-[16px]  font-bold text-gray-900 dark:text-white">
           Good {greeting}, Dickens
         </Text>
         <Text className="text-gray-600 dark:text-gray-400">{date}</Text>
       </View>
       {/* theme button */}
-      <Pressable
+      <Pressable  
         onPress={() =>
           setColorScheme(colorScheme === "dark" ? "light" : "dark")
         }
       >
         <Ionicons
-          name={colorScheme === "light" ? "moon-sharp" : "sunny-sharp"}
-          size={20}
-          className="text-orange-900 dark:text-gray-500"
+          name={colorScheme === "light" ? "moon-outline" : "sunny-sharp"}
+          size={16}
+          className="text-gray-500"
         />
       </Pressable>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
         <Ionicons name="notifications-outline" size={16} color="gray" />
       </TouchableOpacity>
       <TouchableOpacity onPress={()=>open("menu-modal")}>
-        <Ionicons name="menu" size={24} color="gray" />
+        <Ionicons name="menu" size={20} color="gray" />
       </TouchableOpacity>
     </View>
   );

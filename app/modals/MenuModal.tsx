@@ -19,7 +19,7 @@ const MenuModal = () => {
       >
         <Pressable
           onPress={() => {}}
-          className="bg-white dark:bg-zinc-900 p-6 rounded-t-2xl space-y-4"
+          className="bg-white dark:bg-neutral-900 p-6 rounded-t-2xl space-y-4"
         >
           {/* Title */}
           <View className="items-center mb-2">
@@ -37,7 +37,7 @@ const MenuModal = () => {
               close("menu-modal");
               open("add-task");
             }}
-            className="flex-row items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-3"
+            className="flex-row items-center space-x-2 bg-gray-100 shadow-md dark:bg-gray-800 rounded-lg p-3"
           >
             <Ionicons name="add-circle-outline" size={20} color="#22c55e" />
             <Text className="text-gray-800 dark:text-gray-200 font-medium">
@@ -51,7 +51,7 @@ const MenuModal = () => {
               close("menu-modal");
               open("all-tasks");
             }}
-            className="flex-row items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-3"
+            className="flex-row items-center space-x-2 bg-gray-100 shadow-md dark:bg-gray-800 rounded-lg p-3"
           >
             <Ionicons name="list-outline" size={20} color="#3b82f6" />
             <Text className="text-gray-800 dark:text-gray-200 font-medium">
@@ -65,7 +65,7 @@ const MenuModal = () => {
               close("menu-modal");
               open("start-session");
             }}
-            className="flex-row items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-3"
+            className="flex-row items-center space-x-2 bg-gray-100 shadow-md dark:bg-gray-800 rounded-lg p-3"
           >
             <Ionicons name="play-circle-outline" size={20} color="#f59e0b" />
             <Text className="text-gray-800 dark:text-gray-200 font-medium">
@@ -79,10 +79,10 @@ const MenuModal = () => {
               close("menu-modal");
               open("stats");
             }}
-            className="flex-row items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-3"
+            className="flex-row items-center space-x-2 bg-gray-100 shadow-md dark:bg-gray-800 rounded-lg p-3"
           >
             <Ionicons name="bar-chart-outline" size={20} color="#8b5cf6" />
-            <Text className="text-gray-800 dark:text-gray-200 font-medium">
+            <Text className="text-gray-800  dark:text-gray-200 font-medium">
               View Statistics
             </Text>
           </TouchableOpacity>
@@ -93,7 +93,7 @@ const MenuModal = () => {
               close("menu-modal");
               open("settings");
             }}
-            className="flex-row items-center space-x-2 bg-gray-100 dark:bg-gray-800 rounded-lg p-3"
+            className="flex-row items-center space-x-2 bg-gray-100 shadow-md dark:bg-gray-800 rounded-lg p-3"
           >
             <Ionicons name="settings-outline" size={20} color="#0ea5e9" />
             <Text className="text-gray-800 dark:text-gray-200 font-medium">

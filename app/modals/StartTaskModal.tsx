@@ -18,11 +18,11 @@ type TaskType = {
   startTime: string;
 };
 
-type MainProps ={
-  onStart: ()=>void
-}
+type MainProps = {
+  onStart: () => void;
+};
 
-const StartTaskModal = ({onStart}:MainProps) => {
+const StartTaskModal = ({ onStart }: MainProps) => {
   const { isOpen, close, open } = useModal();
   const [tasks, setTasks] = useState<any>([]);
 
@@ -35,12 +35,13 @@ const StartTaskModal = ({onStart}:MainProps) => {
   // Fetch data from storage
   const fetchData = async () => {
     const rawData = await getAllTasks();
-    const parsedData: TaskType = rawData ? JSON.parse(rawData) : [];
-    setTasks(parsedData);
+    const parsedData = rawData ? JSON.parse(rawData) : [];
+    const filtered = parsedData.filter((_: any, index: number) => index <= 8);
+    setTasks(filtered);
   };
 
   //handle start task
-  const handleStartTask = async (id:string) => {
+  const handleStartTask = async (id: string) => {
     const sessionStatus = await fetchCurrentSessionTask();
     if (sessionStatus) {
       Toast.show({
@@ -52,7 +53,7 @@ const StartTaskModal = ({onStart}:MainProps) => {
     }
     const currentTask = tasks.find((task: TaskType) => task.id === id);
     createNewSession(currentTask);
-    onStart()
+    onStart();
   };
 
   return (
@@ -62,8 +63,14 @@ const StartTaskModal = ({onStart}:MainProps) => {
       animationType="slide"
       onRequestClose={() => close("start-task")}
     >
-      <Pressable onPress={()=>close("start-task")} className="flex-1 justify-end bg-black/50 ">
-        <Pressable onPress={()=>{}} className="bg-white dark:bg-neutral-900 p-4 rounded-t-2xl space-y-4">
+      <Pressable
+        onPress={() => close("start-task")}
+        className="flex-1 justify-end bg-black/50 "
+      >
+        <Pressable
+          onPress={() => {}}
+          className="bg-white dark:bg-neutral-900 p-4 rounded-t-2xl space-y-4"
+        >
           <Text className="text-black font-semibold dark:text-white text-xl">
             Choose a task
           </Text>
@@ -96,17 +103,22 @@ const StartTaskModal = ({onStart}:MainProps) => {
                   onPress={() => {
                     close("start-task");
                     handleStartTask(task.id);
-                    onStart
-                    
+                    onStart;
                   }}
                   key={task.id}
-                  className="flex flex-row  justify-between bg-gradient-to-tr  from-blue-800 to-purple-700 dark:shadow-black/50 dark:bg-gradient-to-tl  dark:from-orange-950 dark:to-gray-900 shadow-lg rounded-xl py-2 px-4"
+                  className="flex flex-row justify-between bg-gradient-to-tr  from-blue-800 to-purple-700 dark:shadow-black/50 dark:bg-gradient-to-tl  dark:from-orange-950 dark:to-gray-900 shadow-lg rounded-xl py-2 px-4"
                 >
-                  <View>
-                    <Text className="text-white font-semibold">
+                  <View className="overflow-hidden max-w-56">
+                    <Text
+                      numberOfLines={1}
+                      className="text-white font-semibold"
+                    >
                       {task.title}
                     </Text>
-                    <Text className="text-gray-200 text-xs">
+                    <Text
+                      numberOfLines={1}
+                      className="flex-1 text-gray-200 text-xs"
+                    >
                       {task.description}
                     </Text>
                   </View>
@@ -122,14 +134,11 @@ const StartTaskModal = ({onStart}:MainProps) => {
               ))}
           </View>
 
-      
           <Pressable onPress={() => close("start-task")} className="mt-3 py-3">
-                    <Text className="text-center text-red-500 font-semibold">
-                      Cancel
-                    </Text>
-                  </Pressable>
-
-    
+            <Text className="text-center text-red-500 font-semibold">
+              Cancel
+            </Text>
+          </Pressable>
         </Pressable>
       </Pressable>
     </Modal>

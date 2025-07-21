@@ -43,7 +43,6 @@ export default function App() {
 
       {/* Modals */}
       <AddTaskModal />
-      <NotificationModal />
       <MenuModal />
       {/* toasts */}
       <Toast />
