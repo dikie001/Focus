@@ -139,7 +139,7 @@ export async function updateNotifications(params: any){
   const contentData = parsedData.map((item:any) => item.content)
   // loop to iterate over the contentData array and find duplicates
   for(let i=0 ;i<=contentData.length; i++){
-    if(params.content === contentData[i]){
+    if(params.title === contentData[i]){
       console.log("Found similar content!!!")
       console.log('notif update suspended')
       return

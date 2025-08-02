@@ -48,7 +48,6 @@ const CurrentSession = () => {
       hour: "2-digit",
       minute: "2-digit",
     }),
-    content: '',
     title: '',
   };
 
@@ -89,7 +88,6 @@ const CurrentSession = () => {
   //timer interval
   useEffect(() => {
     timer();
-    // updateNotifications(notification);
   }, []);
 
   //THE TIMER INTERVAL
@@ -105,9 +103,10 @@ const CurrentSession = () => {
         if (taskRef.current !== null) {
           Delete(taskRef.current.id);
         }
-        setMessage(`"${taskRef.current?.title}" task has been completed!`);
+        setMessage(`"${taskRef.current?.title}" completed!`);
         messageRef.current = `"${taskRef.current?.title}" task has been completed!`;
-        updateNotifications(notification);
+        notificationRef.current = notification
+        updateNotifications(notificationRef.current);
         taskRef.current = null;
         handleCompleteSession();
       }
@@ -174,9 +173,10 @@ const CurrentSession = () => {
         if (countRef.current === 1) {
           updateCompletedTasks(taskRef.current);
           purgeCurrentSession();
-          setMessage("Task completed!");
-          messageRef.current = "Task completed";
-          updateNotifications(notification);
+           setMessage(`"${taskRef.current?.title}"  completed!`);
+           messageRef.current = `"${taskRef.current?.title}"  completed!`;
+           notificationRef.current = notification;
+           updateNotifications(notificationRef.current);
         }
 
         countRef.current -= 1;
@@ -198,7 +198,7 @@ const CurrentSession = () => {
       return;
     }
     const parsed = fetch ? JSON.parse(fetch) : [];
-    notification.content = `${parsed.title} terminated before completion!`;
+    notification.title = `"${parsed.title}" terminated before completion!`;
     // Save the current notification to the notificationtRef
     notificationRef.current = notification
     
@@ -225,7 +225,7 @@ const CurrentSession = () => {
     setMessage("Task terminated");
   };
 
-  // remove teh current session from active sessioin when the timer hits zero
+  // remove teh current session from active session when the timer hits zero
   const handleCompleteSession = () => {
     updateNotifications(notification);
     purgeCurrentSession();
@@ -263,11 +263,11 @@ const CurrentSession = () => {
           <Text className="text-white text-3xl font-bold">
             {message === "No task in session..."
               ? "00:00:00"
-              : message === `${taskRef.current?.title} task has been completed!`
+              : message.includes("complete")
                 ? "00:00:00"
                 : formatTime(timeLeft)}
           </Text>
-          <Text className="text-white/70 ml-1 mb-1 text-xs">remaining</Text>
+          <Text className={`text-white/70 ml-1 mb-1 text-xs`}>{message.includes("complete") || message.includes("No") ? "":"remaining"}</Text>
         </View>
 
         <TouchableOpacity
@@ -284,7 +284,7 @@ const CurrentSession = () => {
       {/* Modals */}
       <StartTaskModal onStart={fetchCurrentTask} />
       <ConfirmModal onConfirm={handleConfirm} />
-      <NotificationModal notification={notification} />
+      <NotificationModal />
     </View>
   );
 };
