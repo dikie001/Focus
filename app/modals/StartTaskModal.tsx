@@ -7,7 +7,7 @@ import {
   createNewSession,
   fetchCurrentSessionTask,
   getAllTasks,
-} from "../utils/MIniFunctions";
+} from "../utils/MiniFunctions";
 
 type TaskType = {
   title: string;
@@ -32,7 +32,7 @@ const StartTaskModal = ({ onStart }: MainProps) => {
     }
   }, [isOpen]);
 
-  // Fetch data from storage  
+  // Fetch data from storage
   const fetchData = async () => {
     const rawData = await getAllTasks();
     const parsedData = rawData ? JSON.parse(rawData) : [];

@@ -1,5 +1,4 @@
 import { Ionicons } from "@expo/vector-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useRef, useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Toast from "react-native-toast-message";
@@ -17,7 +16,8 @@ import {
   savePausedAt,
   savePauseStatus,
   updateCompletedTasks,
-} from "../utils/MIniFunctions";
+  updateNotifications,
+} from "../utils/MiniFunctions";
 
 type TaskTypes = {
   id: string;
@@ -48,11 +48,11 @@ const CurrentSession = () => {
       minute: "2-digit",
     }),
     content: message,
+    title: task?.title,
   };
 
   useEffect(() => {
     fetchCurrentTask();
-    createNewNotification();
     // getSavedTime();
     // // getPause();
   }, []);
@@ -82,7 +82,6 @@ const CurrentSession = () => {
       countRef.current = Number(parsedData.duration * 60);
       setTimeLeft(countRef.current);
       pauseStatusRef.current = "playing";
-      createNewNotification();
     } else {
       setMessage("No task in session...");
 
@@ -93,7 +92,7 @@ const CurrentSession = () => {
   //timer interval
   useEffect(() => {
     timer();
-    createNewNotification();
+    updateNotifications(notification);
   }, []);
 
   //THE TIMER INTERVAL
@@ -106,9 +105,11 @@ const CurrentSession = () => {
 
       if (countRef.current === 1) {
         updateCompletedTasks(taskRef.current);
-        Delete(taskRef.current.id);
+        if (taskRef.current !== null) {
+          Delete(taskRef.current.id);
+        }
         setMessage("Task completed!");
-        createNewNotification();
+        updateNotifications(notification);
         taskRef.current = null;
       }
 
@@ -134,12 +135,12 @@ const CurrentSession = () => {
   };
 
   //create new notification for notification modal
-  const createNewNotification = async () => {
-    const previousNotifs = await AsyncStorage.getItem(NOTIFICATIONS);
-    const parsedNotifs = previousNotifs ? JSON.parse(previousNotifs) : [];
-    const updatedNotifs = [...parsedNotifs, notification];
-    await AsyncStorage.setItem(NOTIFICATIONS, JSON.stringify(updatedNotifs));
-  };
+  // const createNewNotification = async () => {
+  //   const previousNotifs = await AsyncStorage.getItem(NOTIFICATIONS);
+  //   const parsedNotifs = previousNotifs ? JSON.parse(previousNotifs) : [];
+  //   const updatedNotifs = [...parsedNotifs, notification];
+  //   await AsyncStorage.setItem(NOTIFICATIONS, JSON.stringify(updatedNotifs));
+  // };
 
   //handle play or pause
   const handlePlayPause = async () => {
@@ -175,7 +176,7 @@ const CurrentSession = () => {
           updateCompletedTasks(taskRef.current);
           purgeCurrentSession();
           setMessage("Task completed!");
-          createNewNotification();
+          updateNotifications(notification);
         }
 
         countRef.current -= 1;
@@ -192,16 +193,21 @@ const CurrentSession = () => {
       Toast.show({
         type: "error",
         text1: "No session",
-        text2: "No session active, create one.",
+        text2: "No session active, create one to continue.",
       });
       return;
     }
+    const parsed = fetch ? JSON.parse(fetch) : [];
+
     open("confirm-modal");
-    setMessage("Task terminated");
+    notification.content = `${parsed.title} terminated before completion!`;
+    notification.title = "exit";
   };
 
   //remove the session after confirm
   const handleConfirm = () => {
+    updateNotifications(notification);
+    setMessage("Task terminated");
     purgeCurrentSession();
     purgePausedAt();
     countRef.current = 0;
@@ -209,6 +215,7 @@ const CurrentSession = () => {
     setTask(undefined);
     taskRef.current = null;
     close("confirm-modal");
+
     Toast.show({
       type: "success",
       text1: "Session removed",

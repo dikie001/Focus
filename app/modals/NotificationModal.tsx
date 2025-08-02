@@ -21,12 +21,13 @@ const NotificationModal = ({ notification }: any) => {
       const allNotifs = await AsyncStorage.getItem(NOTIFICATIONS);
       const parsedNotifs = allNotifs ? JSON.parse(allNotifs) : [];
       const reverse = parsedNotifs.splice("").reverse();
-      const filtered = reverse.filter((_, index: number) => index <= 4);
-      console.log(filtered);
+      const filtered = reverse.filter((_:any, index: number) => index <= 4);
       setNotifications(filtered);
     };
     fetchNotifications();
-  }, []);
+  }, [isOpen("notification-modal")]);
+
+
   const clearNotifications = async () => {
     await AsyncStorage.removeItem(NOTIFICATIONS);
     setNotifications([]);

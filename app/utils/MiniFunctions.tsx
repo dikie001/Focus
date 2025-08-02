@@ -6,6 +6,8 @@ const CURRENT_SESSION = "focus-current-session";
 const COMPLETED_TASKS = "focus-completed-tasks";
 const PAUSE_INTERVAL = "focus-pause-interval";
 const PAUSE_AT_INTERVAL = "focus-pausedAt";
+const NOTIFICATIONS = "focus-notifications";
+
 
 type TaskTypes = {
   id: string;
@@ -122,4 +124,27 @@ export async function Delete(params: string) {
   } catch (err) {
     console.log("AsyncStorage---", err);
   }
+}
+
+
+//get and update all notifications from storage
+export async function updateNotifications(params: any){
+  console.log("params-content",params.content)
+  const existingData = await AsyncStorage.getItem(NOTIFICATIONS)
+  const parsedData = existingData? JSON.parse(existingData):[]
+
+  // create an array containing all the content of the notification
+  // to prevent diplication of notification
+  const contentData = parsedData.map((item:any) => item.content)
+  // loop to iterate over the contentData array and find duplicates
+  for(let i=0 ;i<=contentData.length; i++){
+    if(params.content === contentData[i]){
+      console.log("Found similar content!!!")
+      console.log('notif update suspended')
+      return
+    }
+  }
+  const updatedData = [...parsedData,params ]
+  AsyncStorage.setItem(NOTIFICATIONS, JSON.stringify(updatedData))
+  console.log("done..")
 }

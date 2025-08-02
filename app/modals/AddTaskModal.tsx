@@ -11,7 +11,7 @@ import { TimePickerModal } from "react-native-paper-dates";
 import Toast from "react-native-toast-message";
 import { v4 as uuidv4 } from "uuid";
 import { useModal } from "../context/ModalContext";
-import { CreateNewTask } from "../utils/MIniFunctions";
+import { CreateNewTask } from "../utils/MiniFunctions";
 
 type Props = {
   visible: boolean;
@@ -25,7 +25,7 @@ type taskTypes = {
   startTime: string;
   endTime: string;
   duration: string;
-  category: string
+  category: string;
 };
 
 export default function AddTaskModal() {
@@ -75,7 +75,6 @@ export default function AddTaskModal() {
     task.endTime = stop;
     task.duration = duration;
     task.category = category;
-    
 
     reset();
     CreateNewTask(task);
