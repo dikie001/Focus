@@ -251,7 +251,7 @@ const CurrentSession = () => {
         Current Session
       </Text>
 
-      <Text className="text-white/90  font-medium mb-2">
+      <Text className="text-white/80  font-medium mb-1">
         {taskRef.current?.title || message}
       </Text>
       <TouchableOpacity className="absolute right-6 " onPress={exitSession}>
@@ -272,7 +272,7 @@ const CurrentSession = () => {
                 : formatTime(timeLeft)}
           </Text>
           <Text className={`text-white/70 ml-1 mb-1 text-xs`}>
-            {message.includes("complete") || message.includes("No")
+            {message.includes("complete") || message.includes("No") || message.includes("terminate")
               ? ""
               : "remaining"}
           </Text>
