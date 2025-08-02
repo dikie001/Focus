@@ -39,7 +39,7 @@ const CurrentSession = () => {
   const intervalRef = useRef<NodeJS.Timeout | number | null>(null);
   const pausedAtRef = useRef<string | null>(null);
   const [message, setMessage] = useState<string>("No task in session...");
-  const messageRef = useRef<string >("No task in session...");
+  const messageRef = useRef<string>("No task in session...");
   const [task, setTask] = useState<TaskTypes>();
   const [_, forceUpdate] = useState(0);
   const notificationRef = useRef<any>(null);
@@ -48,7 +48,7 @@ const CurrentSession = () => {
       hour: "2-digit",
       minute: "2-digit",
     }),
-    title: '',
+    title: "",
   };
 
   useEffect(() => {
@@ -105,7 +105,7 @@ const CurrentSession = () => {
         }
         setMessage(`"${taskRef.current?.title}" completed!`);
         messageRef.current = `"${taskRef.current?.title}" task has been completed!`;
-        notificationRef.current = notification
+        notificationRef.current = notification;
         updateNotifications(notificationRef.current);
         taskRef.current = null;
         handleCompleteSession();
@@ -173,10 +173,10 @@ const CurrentSession = () => {
         if (countRef.current === 1) {
           updateCompletedTasks(taskRef.current);
           purgeCurrentSession();
-           setMessage(`"${taskRef.current?.title}"  completed!`);
-           messageRef.current = `"${taskRef.current?.title}"  completed!`;
-           notificationRef.current = notification;
-           updateNotifications(notificationRef.current);
+          setMessage(`"${taskRef.current?.title}"  completed!`);
+          messageRef.current = `"${taskRef.current?.title}"  completed!`;
+          notificationRef.current = notification;
+          updateNotifications(notificationRef.current);
         }
 
         countRef.current -= 1;
@@ -200,13 +200,16 @@ const CurrentSession = () => {
     const parsed = fetch ? JSON.parse(fetch) : [];
     notification.title = `"${parsed.title}" terminated before completion!`;
     // Save the current notification to the notificationtRef
-    notificationRef.current = notification
-    
+    notificationRef.current = notification;
+
     open("confirm-modal");
   };
 
   //remove the session after confirm
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
+    const itemToDelete = await fetchCurrentSessionTask();
+    const parsedItem = itemToDelete? JSON.parse(itemToDelete):[]
+    
     updateNotifications(notificationRef.current);
 
     purgeCurrentSession();
@@ -216,6 +219,7 @@ const CurrentSession = () => {
     setTask(undefined);
     taskRef.current = null;
     close("confirm-modal");
+    if (itemToDelete) Delete(parsedItem.id);
 
     Toast.show({
       type: "success",
@@ -267,7 +271,11 @@ const CurrentSession = () => {
                 ? "00:00:00"
                 : formatTime(timeLeft)}
           </Text>
-          <Text className={`text-white/70 ml-1 mb-1 text-xs`}>{message.includes("complete") || message.includes("No") ? "":"remaining"}</Text>
+          <Text className={`text-white/70 ml-1 mb-1 text-xs`}>
+            {message.includes("complete") || message.includes("No")
+              ? ""
+              : "remaining"}
+          </Text>
         </View>
 
         <TouchableOpacity

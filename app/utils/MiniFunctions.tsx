@@ -102,6 +102,7 @@ export async function purgePausedAt() {
   await AsyncStorage.removeItem(PAUSE_AT_INTERVAL);
 }
 
+
 // delete task with specific id from focus-all-tasks
 export async function Delete(params: string) {
   const allTasks = await AsyncStorage.getItem(ALL_TASKS);
@@ -125,6 +126,7 @@ export async function Delete(params: string) {
     console.log("AsyncStorage---", err);
   }
 }
+
 
 
 //get and update all notifications from storage
