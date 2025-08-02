@@ -130,6 +130,7 @@ export async function Delete(params: string) {
 //get and update all notifications from storage
 export async function updateNotifications(params: any){
   console.log("params-content",params.content)
+  console.log(params)
   const existingData = await AsyncStorage.getItem(NOTIFICATIONS)
   const parsedData = existingData? JSON.parse(existingData):[]
 

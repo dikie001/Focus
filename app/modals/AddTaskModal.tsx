@@ -132,6 +132,7 @@ export default function AddTaskModal() {
           <TextInput
             placeholder="Task Title"
             placeholderTextColor="#888"
+            autoFocus
             value={title}
             onChangeText={setTitle}
             className="bg-neutral-300  dark:bg-neutral-800 p-3 outline-0 focus:ring-1 ring-orange-800 rounded-xl text-black dark:text-white"

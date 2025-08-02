@@ -38,7 +38,8 @@ const CurrentSession = () => {
   const taskRef = useRef<TaskTypes | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | number | null>(null);
   const pausedAtRef = useRef<string | null>(null);
-  const [message, setMessage] = useState<string>("No task in session!");
+  const [message, setMessage] = useState<string>("No task in session...");
+  const messageRef = useRef<string >("No task in session...");
   const [task, setTask] = useState<TaskTypes>();
   const [_, forceUpdate] = useState(0);
   const notificationRef = useRef<any>(null);
@@ -47,8 +48,8 @@ const CurrentSession = () => {
       hour: "2-digit",
       minute: "2-digit",
     }),
-    content: message,
-    title: task?.title,
+    content: '',
+    title: '',
   };
 
   useEffect(() => {
@@ -66,11 +67,6 @@ const CurrentSession = () => {
     countRef.current = Number(pausedTime);
   }
 
-  //Re-render the component
-  const rerender = () => {
-    forceUpdate((prev) => prev + 1);
-  };
-
   //the fetch to be run everytime start-task modal closes
   const fetchCurrentTask = async () => {
     const currentSession = await fetchCurrentSessionTask();
@@ -84,6 +80,7 @@ const CurrentSession = () => {
       pauseStatusRef.current = "playing";
     } else {
       setMessage("No task in session...");
+      // messageRef.current = "No task in session...";
 
       return;
     }
@@ -92,7 +89,7 @@ const CurrentSession = () => {
   //timer interval
   useEffect(() => {
     timer();
-    updateNotifications(notification);
+    // updateNotifications(notification);
   }, []);
 
   //THE TIMER INTERVAL
@@ -108,9 +105,11 @@ const CurrentSession = () => {
         if (taskRef.current !== null) {
           Delete(taskRef.current.id);
         }
-        setMessage("Task completed!");
+        setMessage(`"${taskRef.current?.title}" task has been completed!`);
+        messageRef.current = `"${taskRef.current?.title}" task has been completed!`;
         updateNotifications(notification);
         taskRef.current = null;
+        handleCompleteSession();
       }
 
       countRef.current -= 1;
@@ -176,6 +175,7 @@ const CurrentSession = () => {
           updateCompletedTasks(taskRef.current);
           purgeCurrentSession();
           setMessage("Task completed!");
+          messageRef.current = "Task completed";
           updateNotifications(notification);
         }
 
@@ -198,16 +198,17 @@ const CurrentSession = () => {
       return;
     }
     const parsed = fetch ? JSON.parse(fetch) : [];
-
-    open("confirm-modal");
     notification.content = `${parsed.title} terminated before completion!`;
-    notification.title = "exit";
+    // Save the current notification to the notificationtRef
+    notificationRef.current = notification
+    
+    open("confirm-modal");
   };
 
   //remove the session after confirm
   const handleConfirm = () => {
-    updateNotifications(notification);
-    setMessage("Task terminated");
+    updateNotifications(notificationRef.current);
+
     purgeCurrentSession();
     purgePausedAt();
     countRef.current = 0;
@@ -220,6 +221,24 @@ const CurrentSession = () => {
       type: "success",
       text1: "Session removed",
       text2: "Session terminated successfully!",
+    });
+    setMessage("Task terminated");
+  };
+
+  // remove teh current session from active sessioin when the timer hits zero
+  const handleCompleteSession = () => {
+    updateNotifications(notification);
+    purgeCurrentSession();
+    purgePausedAt();
+    countRef.current = 0;
+    setTimeLeft(0);
+    setTask(undefined);
+    taskRef.current = null;
+
+    Toast.show({
+      type: "success",
+      text1: "Session complete",
+      text2: "Session completed successfully!",
     });
   };
   return (
@@ -242,9 +261,9 @@ const CurrentSession = () => {
       <View className="flex-row justify-between items-center">
         <View className="flex-row items-end">
           <Text className="text-white text-3xl font-bold">
-            {message === "No task in session!"
+            {message === "No task in session..."
               ? "00:00:00"
-              : message === "Task completed!"
+              : message === `${taskRef.current?.title} task has been completed!`
                 ? "00:00:00"
                 : formatTime(timeLeft)}
           </Text>

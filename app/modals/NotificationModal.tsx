@@ -57,10 +57,10 @@ const NotificationModal = ({ notification }: any) => {
           </Text>
 
           {/* Notifications mapped */}
-          {notifications?.map((notif: any) => (
-            <View className=" flex  my-1">
+          {notifications?.map((notif: any,index:number) => (
+            <View className=" flex  my-1" key={index}>
               <Pressable
-                key={notif.id}
+                key={index}
                 className={` flex-1  bg-gray-200  justify-center px-4 py-2 rounded-xl shadow-lg dark:bg-gray-800 `}
               >
                 <Text className=" text-zinc-700 dark:text-zinc-300 ">
