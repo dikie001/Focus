@@ -55,7 +55,7 @@ const NotificationModal = () => {
             <Ionicons
               name="notifications"
               size={16}
-              className="text-orange-600 dark:text-gray-400"
+              className="text-orange-600 dark:text-gray-400 mr-3"
             />{" "}
             Notifications
           </Text>
@@ -63,6 +63,7 @@ const NotificationModal = () => {
           {/* Notifications mapped */}
           {notifications?.map((notif: any,index:number) => (
             <View className=" flex  my-1" key={index}>
+
               <Pressable
                 key={index}
                 className={` flex-1  bg-gray-200  justify-center px-4 py-2 rounded-xl shadow-lg dark:bg-gray-800 `}

@@ -36,7 +36,7 @@ const StartTaskModal = ({ onStart }: MainProps) => {
   const fetchData = async () => {
     const rawData = await getAllTasks();
     const parsedData = rawData ? JSON.parse(rawData) : [];
-    const filtered = parsedData.filter((_: any, index: number) => index > 9);
+    const filtered = parsedData.filter((_: any, index: number) => index < 9);
     setTasks(filtered);
   };
 

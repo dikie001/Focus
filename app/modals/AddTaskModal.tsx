@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { useRef, useState } from "react";
 import {
   Modal,
@@ -28,17 +29,22 @@ type taskTypes = {
   category: string;
 };
 
-export default function AddTaskModal() {
+interface handleConfirmProps {
+  handleConfirm: () => void;
+}
+
+export default function AddTaskModal({ handleConfirm }: handleConfirmProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
-  const [time, setTime] = useState<string>("");
+  const [time, setTime] = useState<string | number>(0);
   const { isOpen, close } = useModal();
   const [visible, setVisible] = useState<boolean>(false);
   const selectedTimeRef = useRef<any | null>(null);
   const startTimeRef = useRef<any | null>(null);
   const [category, setCategory] = useState<string>("learning");
   const endTimeRef = useRef<any | null>(null);
+  const [showCategoryModal, setShowCategoryModal] = useState<boolean>(false);
   const task: any = {
     id: "",
     title: "",
@@ -155,7 +161,7 @@ export default function AddTaskModal() {
               className={`${selectedTimeRef.current !== null && "bg-primary-sButton"} min-w-[40%] flex-1 bg-orange-800 p-3 rounded-xl items-center`}
             >
               <Text
-                className={`${selectedTimeRef.current !== null && "text-gray-950"} text-white font-semibold`}
+                className={`${selectedTimeRef.current === null ? "text-white" : "text-gray-800"}  font-semibold`}
               >{`${selectedTimeRef.current === null ? "Select Time" : "Time Selected!"}`}</Text>
             </TouchableOpacity>
             <TextInput
@@ -204,7 +210,20 @@ export default function AddTaskModal() {
             <Text className="dark:text-white font-semibold text-[16px] ">
               Category
             </Text>
-            <View className="flex-1 items-center justify-between mt-2 mb-2 flex-row px-4">
+            <TouchableOpacity
+              onPress={() => setShowCategoryModal(true)}
+              className="mt-2 bg-neutral-300 dark:bg-neutral-800 flex flex-row justify-between  py-3 px-4 rounded-xl  "
+            >
+              <Text className="dark:text-white font-medium">
+                Select category
+              </Text>
+              <Ionicons
+                className="dark:text-neutral-300"
+                name="star"
+                size={16}
+              />
+            </TouchableOpacity>
+            {/* <View className="flex-1 items-center justify-between mt-2 mb-2 flex-row px-4">
               <View className="flex flex-row gap-2">
                 <TouchableOpacity
                   onPress={() => {
@@ -227,7 +246,7 @@ export default function AddTaskModal() {
                 />
                 <Text className="dark:text-white">work</Text>
               </View>
-            </View>
+            </View> */}
           </View>
 
           <View className="flex-row justify-between space-x-3">
@@ -239,7 +258,10 @@ export default function AddTaskModal() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              onPress={handleSubmit}
+              onPress={() => {
+                handleSubmit();
+                handleConfirm(); // this will trigger fetching of data in the index page  to keep everything updated
+              }}
               className="flex-1 bg-primary-pButton p-3 rounded-xl items-center"
             >
               <Text className="text-white font-semibold">Add Task</Text>
@@ -257,9 +279,25 @@ export default function AddTaskModal() {
           setVisible(false);
           selectedTimeRef.current = params;
         }}
-        hours={time?.hours}
-        minutes={time?.minutes}
+        // hours={time?.hours}
+        // minutes={time?.minutes}
       />
+
+      <Modal animationType="fade" visible={showCategoryModal} transparent>
+        <Pressable
+          className="inset-0  h-screen bg-black/80 p-4 items-center justify-center "
+          onPress={() => setShowCategoryModal(false)}
+        >
+          <Pressable className="bg-neutral-700 w-full p-4 rounded-2xl">
+            <Text className="dark:text-white font-medium text-center mb-2 ">
+              Choose category
+            </Text>
+            <Pressable className="dark:text-white">Learning</Pressable>
+            <Pressable>Work</Pressable>
+            <Pressable>Other</Pressable>
+          </Pressable>
+        </Pressable>
+      </Modal>
     </Modal>
   );
 }

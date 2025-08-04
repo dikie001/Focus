@@ -2,8 +2,18 @@ import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
+import { getCompletedTasks } from "../utils/MiniFunctions";
 
 const COMPLETED_TASKS = "focus-completed-tasks";
+
+interface TaskTypes{
+  title:string,
+  description:string,
+  category:string,
+  duration:string,
+  endTime:string
+
+}
 
 const RecentActivity = () => {
   const [tasks, setTasks] = useState<any>();
@@ -13,14 +23,16 @@ const RecentActivity = () => {
     getRecentAsctivity();
   }, []);
   const getRecentAsctivity = async () => {
-    const rawData = await AsyncStorage.getItem(COMPLETED_TASKS);
-    const parsedData = rawData ? JSON.parse(rawData) : [];
+    const loadedData = await getCompletedTasks()
+    const parsedData = loadedData? JSON.parse(loadedData):[]
+    
     // const reversedData = parsedData.slice().reverse();
     // console.log(reversedData);
     const filteredData = parsedData.filter(
       (_: any, index: number) => index <= 3
     );
     setTasks(filteredData);
+    console.log(filteredData)
   };
   return (
     <View className="mb-6">

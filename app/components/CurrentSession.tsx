@@ -27,8 +27,12 @@ type TaskTypes = {
   endTime: string;
   duration: string;
 };
+
+interface PropTypes {
+  taskId: string;
+}
 const NOTIFICATIONS = "focus-notifications";
-const CurrentSession = () => {
+const CurrentSession = ({ taskId }: PropTypes) => {
   const { open, close, isOpen } = useModal();
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
   const [start, setStart] = useState(false);
@@ -41,8 +45,10 @@ const CurrentSession = () => {
   const [message, setMessage] = useState<string>("No task in session...");
   const messageRef = useRef<string>("No task in session...");
   const [task, setTask] = useState<TaskTypes>();
+  const idRef = useRef<string>("");
   const [_, forceUpdate] = useState(0);
   const notificationRef = useRef<any>(null);
+  idRef.current = taskId;
   const notification = {
     time: new Date().toLocaleTimeString([], {
       hour: "2-digit",
@@ -56,6 +62,15 @@ const CurrentSession = () => {
     // getSavedTime();
     // // getPause();
   }, []);
+
+  //to run when the idRef changes
+  useEffect(() => {
+    const loadCurrenttask = async () => {
+      fetchCurrentTask();
+    };
+
+    loadCurrenttask();
+  }, [idRef.current]);
 
   //get the saved time for pause from storage
   async function getSavedTime() {
@@ -208,8 +223,8 @@ const CurrentSession = () => {
   //remove the session after confirm
   const handleConfirm = async () => {
     const itemToDelete = await fetchCurrentSessionTask();
-    const parsedItem = itemToDelete? JSON.parse(itemToDelete):[]
-    
+    const parsedItem = itemToDelete ? JSON.parse(itemToDelete) : [];
+
     updateNotifications(notificationRef.current);
 
     purgeCurrentSession();
@@ -272,7 +287,9 @@ const CurrentSession = () => {
                 : formatTime(timeLeft)}
           </Text>
           <Text className={`text-white/70 ml-1 mb-1 text-xs`}>
-            {message.includes("complete") || message.includes("No") || message.includes("terminate")
+            {message.includes("complete") ||
+            message.includes("No") ||
+            message.includes("terminate")
               ? ""
               : "remaining"}
           </Text>

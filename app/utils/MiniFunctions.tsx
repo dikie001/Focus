@@ -38,7 +38,14 @@ export async function CreateNewTask(params: TaskTypes) {
 //fetching all tasks from storage
 export async function getAllTasks() {
   const rawData = await AsyncStorage.getItem(ALL_TASKS);
+const parsed = rawData && JSON.parse(rawData)
+console.log("data-length",parsed.length)
+  return rawData;
+}
 
+// Get the completed tasks from storage for recent activity 
+export async function getCompletedTasks(){
+  const rawData = await AsyncStorage.getItem(COMPLETED_TASKS)
   return rawData;
 }
 
