@@ -39,7 +39,6 @@ export async function CreateNewTask(params: TaskTypes) {
 export async function getAllTasks() {
   const rawData = await AsyncStorage.getItem(ALL_TASKS);
 const parsed = rawData && JSON.parse(rawData)
-console.log("data-length",parsed.length)
   return rawData;
 }
 
@@ -72,9 +71,12 @@ export async function fetchCurrentSessionTask() {
 
 //create and update list of completed tasks
 export async function updateCompletedTasks(params: any) {
+  console.log("current_params_from_updateCompletedTasks()",params)
   const rawData = await AsyncStorage.getItem(COMPLETED_TASKS);
   const parsedData = rawData ? JSON.parse(rawData) : [];
   const updatedData = [...parsedData, params];
+  console.log("updated_data_from_updateCompletedTasks()", updatedData);
+  
   try {
     await AsyncStorage.setItem(COMPLETED_TASKS, JSON.stringify(updatedData));
   } catch (err) {
@@ -134,12 +136,30 @@ export async function Delete(params: string) {
   }
 }
 
+// Exit a task prematurely without saving to completed tasks
+export async function deletePrematurely(params:string){
+  const allTasks = await AsyncStorage.getItem(ALL_TASKS);
+  const parsedTasks = allTasks ? JSON.parse(allTasks) : [];
+  const itemToDelete = parsedTasks.find(
+    (item: TaskTypes) => item.id === params
+  );
+  const filteredItems = parsedTasks.filter(
+    (item: TaskTypes) => item !== itemToDelete
+  );
+
+  try {
+    await AsyncStorage.setItem(ALL_TASKS, JSON.stringify(filteredItems));
+    console.info("Task ended prematurely!")
+  } catch (err) {
+    console.log("AsyncStorage---", err);
+  }
+}
+
 
 
 //get and update all notifications from storage
 export async function updateNotifications(params: any){
-  console.log("params-content",params.content)
-  console.log(params)
+  console.log("notifications-params",params)
   const existingData = await AsyncStorage.getItem(NOTIFICATIONS)
   const parsedData = existingData? JSON.parse(existingData):[]
 

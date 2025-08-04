@@ -8,6 +8,7 @@ import NotificationModal from "../modals/NotificationModal";
 import StartTaskModal from "../modals/StartTaskModal";
 import {
   Delete,
+  deletePrematurely,
   fetchCurrentSessionTask,
   getPause,
   getPausedAt,
@@ -15,7 +16,6 @@ import {
   purgePausedAt,
   savePausedAt,
   savePauseStatus,
-  updateCompletedTasks,
   updateNotifications,
 } from "../utils/MiniFunctions";
 
@@ -114,14 +114,14 @@ const CurrentSession = ({ taskId }: PropTypes) => {
       }
 
       if (countRef.current === 1) {
-        updateCompletedTasks(taskRef.current);
+        // updateCompletedTasks(taskRef.current);
         if (taskRef.current !== null) {
           Delete(taskRef.current.id);
         }
         setMessage(`"${taskRef.current?.title}" completed!`);
-        messageRef.current = `"${taskRef.current?.title}" task has been completed!`;
+        messageRef.current = `"${taskRef.current?.title}" is completed!`;
+        notification.title = `"${taskRef.current?.title}" is completed!`;
         notificationRef.current = notification;
-        updateNotifications(notificationRef.current);
         taskRef.current = null;
         handleCompleteSession();
       }
@@ -186,12 +186,13 @@ const CurrentSession = ({ taskId }: PropTypes) => {
         }
 
         if (countRef.current === 1) {
-          updateCompletedTasks(taskRef.current);
+          // updateCompletedTasks(taskRef.current);
           purgeCurrentSession();
           setMessage(`"${taskRef.current?.title}"  completed!`);
           messageRef.current = `"${taskRef.current?.title}"  completed!`;
+          notification.title = `"${taskRef.current?.title}"  completed!`;
           notificationRef.current = notification;
-          updateNotifications(notificationRef.current);
+          handleCompleteSession()
         }
 
         countRef.current -= 1;
@@ -234,7 +235,7 @@ const CurrentSession = ({ taskId }: PropTypes) => {
     setTask(undefined);
     taskRef.current = null;
     close("confirm-modal");
-    if (itemToDelete) Delete(parsedItem.id);
+    if (itemToDelete) deletePrematurely(parsedItem.id);
 
     Toast.show({
       type: "success",
@@ -246,11 +247,12 @@ const CurrentSession = ({ taskId }: PropTypes) => {
 
   // remove teh current session from active session when the timer hits zero
   const handleCompleteSession = () => {
-    updateNotifications(notification);
+    updateNotifications(notificationRef.current);
+    console.log("notifRef.current--",notificationRef.current)
     purgeCurrentSession();
     purgePausedAt();
     countRef.current = 0;
-    setTimeLeft(0);
+    setTimeLeft(0);  
     setTask(undefined);
     taskRef.current = null;
 

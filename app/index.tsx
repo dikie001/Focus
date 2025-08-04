@@ -53,10 +53,11 @@ export default function App() {
         }
         if (element && currentTime) {
           let status;
-          // console.log("active...");
-          console.log("el--", element, "cr--", currentTime);
+          console.log("active...");
+          // console.log("el--", element, "cr--", currentTime);
         }
 
+        // start running the task
         if (element === currentTime) {
           console.log("intitiating task!!!");
         const currentTask =  allTasksInStorageRef.current?.find(
@@ -69,7 +70,7 @@ export default function App() {
             ? createNewSession(currentTaskRef.current)
             : console.log("task not created");
 
-          console.log("session created with id: ", currentTaskRef.current?.id);
+          // console.log("session created with id: ", currentTaskRef.current?.id);
         }
       });
     }, 1000);
