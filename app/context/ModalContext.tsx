@@ -31,6 +31,8 @@ export function ModalProvider({ children }: { children: ReactNode }) {
     return modals[id] ?? false; // default to false if modal ID is not in map
   };
 
+
+
   return (
     <ModalContext.Provider value={{ modals, open, close, isOpen }}>
       {children}

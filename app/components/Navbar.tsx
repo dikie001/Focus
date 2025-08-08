@@ -40,6 +40,9 @@ const Navbar = () => {
     }, [])
   );
 
+
+  //load notifications length
+
   const calculateDate = () => {
     const today = new Date();
     // get the day of week
@@ -55,10 +58,10 @@ const Navbar = () => {
       setGreeting("morning");
     } else if (hours < 15) {
       setGreeting("afternoon");
-    } else if(hours < 21) {
+    } else if (hours < 21) {
       setGreeting("evening");
-    }else{
-      setGreeting("night")
+    } else {
+      setGreeting("night");
     }
 
     //get the date of the month
@@ -77,7 +80,7 @@ const Navbar = () => {
         <Text className="text-gray-600 dark:text-gray-400">{date}</Text>
       </View>
       {/* theme button */}
-      <Pressable  
+      <Pressable
         onPress={() =>
           setColorScheme(colorScheme === "dark" ? "light" : "dark")
         }
@@ -89,10 +92,13 @@ const Navbar = () => {
         />
       </Pressable>
 
-      <TouchableOpacity onPress={()=>open("notification-modal")}>
+      <TouchableOpacity onPress={() => open("notification-modal")}>
         <Ionicons name="notifications-outline" size={16} color="gray" />
+        <View className="shadow p-1 absolute top-[-6] right-[-4] h-3 w-3 bg-blue-600 dark:bg-orange-700 rounded-full items-center justify-center">
+          <Text className=" font-medium text-[10px] text-white ">2</Text>
+        </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>open("menu-modal")}>
+      <TouchableOpacity onPress={() => open("menu-modal")}>
         <Ionicons name="menu" size={20} color="gray" />
       </TouchableOpacity>
     </View>

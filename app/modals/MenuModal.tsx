@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { useModal } from "../context/ModalContext";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 const MenuModal = () => {
   const { open, close, isOpen } = useModal();
@@ -49,7 +50,7 @@ const MenuModal = () => {
           <TouchableOpacity
             onPress={() => {
               close("menu-modal");
-              open("all-tasks");
+              router.push("/AllTasks")
             }}
             className="flex-row items-center space-x-2 bg-gray-100 shadow-md dark:bg-gray-800 rounded-lg p-3"
           >

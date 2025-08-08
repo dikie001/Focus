@@ -71,7 +71,7 @@ const NotificationModal = () => {
                 <Text className={` text-zinc-700 font-medium dark:text-zinc-300 text-xs `}>
                   {notif?.title}
                 </Text>
-                <Text className=" text-zinc-500 text-xs dark:text-zinc-300 ">
+                <Text className=" text-zinc-500 text-[10px] dark:text-zinc-300 ">
                   {notif?.time}
                 </Text>
               </Pressable>
