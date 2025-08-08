@@ -101,7 +101,7 @@ export default function App() {
 
   return (
     <ModalProvider>
-      <View className="flex-1 bg-white dark:bg-gradient-to-br dark:from-slate-950 dark:to-neutral-950 px-4 pt-12">
+      <View className="flex-1 bg-white dark:bg-gradient-to-br dark:from-gray-950 dark:to-neutral-950 px-4 pt-10">
         <Navbar />
         <ScrollView
           // onScroll={handleScroll}

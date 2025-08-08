@@ -79,7 +79,7 @@ const StartTaskModal = ({ onStart }: MainProps) => {
           {!tasks ||
             (tasks.length === 0 && (
               <View className="flex flex-col justify-center items-center">
-                <Text className="text-gray-600 leading-relaxed text-center dark:text-gray-400">
+                <Text className="text-gray-600 leading-relaxed text-center font-medium dark:text-gray-400">
                   No tasks added yet, click the button below to get started
                 </Text>
                 <TouchableOpacity
