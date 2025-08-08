@@ -79,7 +79,7 @@ const StartTaskModal = ({ onStart }: MainProps) => {
           {!tasks ||
             (tasks.length === 0 && (
               <View className="flex flex-col justify-center items-center">
-                <Text className="text-gray-600 leading-4 text-center dark:text-gray-400">
+                <Text className="text-gray-600 leading-relaxed text-center dark:text-gray-400">
                   No tasks added yet, click the button below to get started
                 </Text>
                 <TouchableOpacity
@@ -87,7 +87,7 @@ const StartTaskModal = ({ onStart }: MainProps) => {
                     open("add-task");
                     close("start-task");
                   }}
-                  className="px-4 py-2 mt-2 rounded-xl shadow-xl bg-primary-pButton "
+                  className="px-6 py-4 mt-2 rounded-2xl  shadow-xl bg-primary-pButton "
                 >
                   <Text className="text-white font-medium">Add Task</Text>
                 </TouchableOpacity>

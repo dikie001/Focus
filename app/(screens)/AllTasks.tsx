@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   Pressable,
@@ -13,7 +14,6 @@ import {
   fetchCurrentSessionTask,
   getAllTasks,
 } from "../utils/MiniFunctions";
-import { router } from "expo-router";
 
 type TaskType = {
   title: string;
@@ -63,8 +63,8 @@ const AllTasks = ({ onStart }: MainProps) => {
   return (
     <View>
       {/* <Navbar/> */}
+      <Toast />
       <ScrollView>
-        <Pressable className="flex-1 justify-end bg-black/50 ">
           <Pressable
             onPress={() => {}}
             className="bg-white dark:bg-neutral-900 p-4  h-dvh space-y-4"
@@ -73,8 +73,8 @@ const AllTasks = ({ onStart }: MainProps) => {
               <Ionicons
                 name="chevron-back"
                 size={22}
-                onPress={()=>router.back()}
-                className="text-blue-900 dark:text-white absolute top-2 left-2 active:bg-neutral-800 p-2 rounded-full" 
+                onPress={() => router.back()}
+                className="text-blue-900 dark:text-white absolute top-2 left-2 active:bg-neutral-800 p-2 rounded-full"
               />
             </Pressable>
             <Text className="text-black text-center font-semibold dark:text-white text-xl">
@@ -85,12 +85,12 @@ const AllTasks = ({ onStart }: MainProps) => {
             {!tasks ||
               (tasks.length === 0 && (
                 <View className="flex flex-col justify-center items-center">
-                  <Text className="text-gray-600 leading-4 text-center dark:text-gray-400">
+                  <Text className="text-gray-600 leading-relaxed text-center dark:text-gray-400">
                     No tasks added yet, click the button below to get started
                   </Text>
                   <TouchableOpacity
                     onPress={() => {}}
-                    className="px-4 py-2 mt-2 rounded-xl shadow-xl bg-primary-pButton "
+                    className="px-6 py-4 mt-2 rounded-2xl shadow-xl bg-primary-pButton "
                   >
                     <Text className="text-white font-medium">Add Task</Text>
                   </TouchableOpacity>
@@ -126,7 +126,10 @@ const AllTasks = ({ onStart }: MainProps) => {
                     </View>
                     <View className="items-center justify-center">
                       <TouchableOpacity
-                        onPress={() => {}}
+                        onPress={() => {
+                          handleStartTask(task.id);
+                          onStart;
+                        }}
                         className=" h-7 w-7 bg-white/20 flex  items-center justify-center rounded-full "
                       >
                         <Ionicons
@@ -140,7 +143,6 @@ const AllTasks = ({ onStart }: MainProps) => {
                 ))}
             </View>
           </Pressable>
-        </Pressable>
       </ScrollView>
     </View>
   );
